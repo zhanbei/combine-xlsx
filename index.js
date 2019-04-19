@@ -4,9 +4,11 @@ const fs = require('fs');
 const XLSX = require('xlsx');
 
 // 给定 Excel 的格式
-const mTitleKeys = [{from: '标题', to: 'title'}, {from: '数据', to: 'value'}];
+// 给定的 Excel 第一行是标题，此处定义各个列。
+const mTitleKeys = [{from: '学号', to: 'id'}, {from: '姓名', to: 'name'}, {from: '成绩', to: 'score'}];
 // 导出的 CSV 文件的格式
-const mTargetCsvTitles = [{from: 'title'}, {from: 'value'}];
+// 定义合并后CSV文件的各个列。
+const mTargetCsvTitles = [{from: 'id'}, {from: 'name'}, {from: 'score'}];
 
 /* ---------- 列取目标文件 ---------- */
 const mTargetFolder = process.argv.length >= 3 ? process.argv[2] || '.' : '.';
